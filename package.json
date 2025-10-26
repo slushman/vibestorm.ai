@@ -1,0 +1,26 @@
+{
+  "name": "vibestorm-ai",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slushman/vibestorm.ai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slushman/vibestorm.ai/issues"
+  },
+  "homepage": "https://github.com/slushman/vibestorm.ai#readme",
+  "description": "",
+  "dependencies": {
+    "astro": "^5.15.1"
+  }
+}
