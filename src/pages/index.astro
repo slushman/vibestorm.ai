@@ -12,57 +12,55 @@ const pageTitle = "VibeStorm - Stop losing your best prompts";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="font-sans leading-normal text-[#1a1a1a] bg-white dark:bg-gradient-to-br dark:from-[#1a1a2e] dark:to-[#16213e] dark:text-white">
     <!-- Hero Section -->
-    <header class="hero">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">VibeStorm</div>
-                <div class="nav-actions">
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                        <span class="sun-icon">☀️</span>
-                        <span class="moon-icon">🌙</span>
+    <header class="bg-gradient-to-b from-white to-[#f8f9ff] dark:bg-gradient-to-br dark:from-brand-purple dark:to-brand-purple-dark">
+        <nav class="py-5 border-b border-[#f0f0f0] dark:border-white/10">
+            <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+                <div class="text-2xl font-extrabold bg-gradient-to-br from-brand-purple to-brand-purple-dark bg-clip-text text-transparent dark:bg-none dark:text-white">VibeStorm</div>
+                <div class="flex items-center gap-4">
+                    <button class="theme-toggle bg-transparent border-2 border-[#e0e0e0] dark:border-white/20 rounded-lg px-3 py-2 cursor-pointer text-xl flex items-center transition-all hover:border-brand-purple hover:scale-105 dark:hover:border-brand-purple" id="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="sun-icon block dark:hidden">☀️</span>
+                        <span class="moon-icon hidden dark:block">🌙</span>
                     </button>
-                    <button class="cta-button-small">Sign Up</button>
+                    <button class="px-6 py-2.5 bg-gradient-to-br from-brand-purple to-brand-purple-dark text-white border-2 border-transparent rounded-lg text-sm font-semibold cursor-pointer transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(102,126,234,0.3)] dark:bg-white/15 dark:border-white/30 dark:hover:bg-white/25 dark:hover:border-white">Sign Up</button>
                 </div>
             </div>
         </nav>
 
-        <div class="hero-content container">
-            <h1 class="hero-headline">Stop losing your best prompts</h1>
-            <p class="hero-subheadline">Save, organize, share, and discover prompts that actually work</p>
-            <div class="hero-cta">
-                <input type="email" class="email-input" placeholder="Enter your email" id="hero-email">
-                <button class="cta-button" data-signup>Sign Up</button>
+        <div class="max-w-7xl mx-auto px-6 py-20 pb-[120px] text-center">
+            <h1 class="text-[56px] font-extrabold mb-6 max-w-[900px] mx-auto bg-gradient-to-br from-[#1a1a1a] to-[#4a4a4a] bg-clip-text text-transparent leading-tight dark:from-white dark:to-[#f0f0f0]">Stop losing your best prompts</h1>
+            <p class="text-[22px] text-[#666] mb-10 max-w-[700px] mx-auto dark:text-white/90">Save, organize, share, and discover prompts that actually work</p>
+            <div class="flex gap-3 max-w-[500px] mx-auto mb-4 flex-col md:flex-row">
+                <input type="email" class="flex-1 px-5 py-4 border-2 border-[#e0e0e0] rounded-xl text-base transition-all focus:outline-none focus:border-brand-purple focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)] dark:bg-white/10 dark:border-white/30 dark:text-white dark:placeholder-white/60 dark:focus:bg-white/15 dark:focus:border-white" placeholder="Enter your email" id="hero-email">
+                <button class="px-8 py-4 bg-gradient-to-br from-brand-purple to-brand-purple-dark text-white border-2 border-transparent rounded-xl text-base font-semibold cursor-pointer whitespace-nowrap transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(102,126,234,0.3)] dark:bg-white/15 dark:text-white dark:border-white/30 dark:hover:bg-white/25 dark:hover:border-white" data-signup>Sign Up</button>
             </div>
-            <p class="hero-caption">Get notified when its available!</p>
+            <p class="text-[#888] text-sm dark:text-white/70">Get notified when its available!</p>
         </div>
     </header>
 
     <!-- Benefits Section -->
-    <section class="benefits">
-        <div class="container">
-            <div class="benefits-content">
-                <div class="benefits-text">
-                    <h2>Your prompts deserve better than scattered docs</h2>
-                    <p>You've spent hours crafting the perfect prompt, only to lose it in a sea of Google Docs, some email, or chat histories. VibeStorm gives you a dedicated workspace to:</p>
-                    <ul class="benefits-list">
-                        <li>Save and categorize every prompt you create</li>
-                        <li>Iterate and improve with confidence</li>
-                        <li>Share with anyone and everyone</li>
-                        <li>Access your prompts from anywhere</li>
+    <section class="py-[120px] bg-white dark:bg-gradient-to-br dark:from-[#1a1a2e] dark:to-[#16213e]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-[80px] items-center">
+                <div>
+                    <h2 class="text-[38px] font-bold mb-6">Your prompts deserve better than scattered docs</h2>
+                    <p class="text-lg text-[#666] mb-6 dark:text-white/90">You've spent hours crafting the perfect prompt, only to lose it in a sea of Google Docs, some email, or chat histories. VibeStorm gives you a dedicated workspace to:</p>
+                    <ul class="list-none">
+                        <li class="py-3 pl-8 relative text-base text-[#444] before:content-['✓'] before:absolute before:left-0 before:text-brand-purple before:font-bold before:text-lg dark:text-white/95 dark:before:text-white">Save and categorize every prompt you create</li>
+                        <li class="py-3 pl-8 relative text-base text-[#444] before:content-['✓'] before:absolute before:left-0 before:text-brand-purple before:font-bold before:text-lg dark:text-white/95 dark:before:text-white">Iterate and improve with confidence</li>
+                        <li class="py-3 pl-8 relative text-base text-[#444] before:content-['✓'] before:absolute before:left-0 before:text-brand-purple before:font-bold before:text-lg dark:text-white/95 dark:before:text-white">Share with anyone and everyone</li>
+                        <li class="py-3 pl-8 relative text-base text-[#444] before:content-['✓'] before:absolute before:left-0 before:text-brand-purple before:font-bold before:text-lg dark:text-white/95 dark:before:text-white">Access your prompts from anywhere</li>
                     </ul>
                 </div>
-                <div class="benefits-visual">
-                    <div class="visual-placeholder">
-                        <div class="prompt-card">
-                            <div class="prompt-header">
-                                <span class="prompt-tag">Marketing</span>
-                                <span class="prompt-version">v3.2</span>
-                            </div>
-                            <div class="prompt-title">Product Description Writer</div>
-                            <div class="prompt-preview">You are an expert copywriter...</div>
+                <div class="bg-white rounded-2xl p-10 shadow-[0_20px_60px_rgba(0,0,0,0.1)] dark:bg-white/10 dark:backdrop-blur-[10px]">
+                    <div class="bg-gradient-to-br from-[#f8f9ff] to-white border border-[#e0e0e0] rounded-xl p-6 dark:from-brand-purple/40 dark:to-brand-purple-dark/20 dark:border-white/20">
+                        <div class="flex justify-between mb-4">
+                            <span class="bg-brand-purple text-white px-3 py-1 rounded-md text-xs font-semibold">Marketing</span>
+                            <span class="text-[#888] text-xs dark:text-white/70">v3.2</span>
                         </div>
+                        <div class="text-lg font-semibold mb-3">Product Description Writer</div>
+                        <div class="text-[#888] text-sm italic dark:text-white/70">You are an expert copywriter...</div>
                     </div>
                 </div>
             </div>
@@ -70,28 +68,28 @@ const pageTitle = "VibeStorm - Stop losing your best prompts";
     </section>
 
     <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">From prompt chaos to prompt mastery</h2>
-            <p class="section-subtitle">Everything you need to manage your AI prompts in one place</p>
+    <section class="py-[120px] bg-[#f8f9ff] dark:bg-gradient-to-br dark:from-[#2d1b4e] dark:to-[#1e1535]">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-[42px] font-bold text-center mb-4">From prompt chaos to prompt mastery</h2>
+            <p class="text-center text-lg text-[#666] mb-[60px] dark:text-white/80">Everything you need to manage your AI prompts in one place</p>
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">💾</div>
-                    <h3>Save Everything That Works</h3>
-                    <p>Finally, a place for all those "oh that was a good one" moments. Save prompts instantly and never lose your best work again.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 border border-[#f0f0f0] rounded-2xl transition-all hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,0,0,0.08)] hover:border-brand-purple dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/8">
+                    <div class="text-[40px] mb-4">💾</div>
+                    <h3 class="text-[22px] font-semibold mb-3">Save Everything That Works</h3>
+                    <p class="text-[#666] dark:text-white/80">Finally, a place for all those "oh that was a good one" moments. Save prompts instantly and never lose your best work again.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Share What You Discover</h3>
-                    <p>Found a prompt that nails it? Share it with the community or keep it private - your choice. Learn from others and contribute your wins.</p>
+                <div class="p-8 border border-[#f0f0f0] rounded-2xl transition-all hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,0,0,0.08)] hover:border-brand-purple dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/8">
+                    <div class="text-[40px] mb-4">🌍</div>
+                    <h3 class="text-[22px] font-semibold mb-3">Share What You Discover</h3>
+                    <p class="text-[#666] dark:text-white/80">Found a prompt that nails it? Share it with the community or keep it private - your choice. Learn from others and contribute your wins.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">🔮</div>
-                    <h3>More Coming Soon</h3>
-                    <p>We're building organization tools, templates, analytics, and AI-powered improvements. Start saving now and unlock new features as we grow.</p>
+                <div class="p-8 border border-[#f0f0f0] rounded-2xl transition-all hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,0,0,0.08)] hover:border-brand-purple dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/8">
+                    <div class="text-[40px] mb-4">🔮</div>
+                    <h3 class="text-[22px] font-semibold mb-3">More Coming Soon</h3>
+                    <p class="text-[#666] dark:text-white/80">We're building organization tools, templates, analytics, and AI-powered improvements. Start saving now and unlock new features as we grow.</p>
                 </div>
 
             </div>
@@ -99,704 +97,46 @@ const pageTitle = "VibeStorm - Stop losing your best prompts";
     </section>
 
     <!-- Social Proof / Stats
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">10,000+</div>
-                    <div class="stat-label">Prompts Created</div>
+    <section class="py-20 bg-gradient-to-br from-brand-purple to-brand-purple-dark text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-[60px] text-center">
+                <div>
+                    <div class="text-5xl font-extrabold text-white mb-2">10,000+</div>
+                    <div class="text-base text-white/90">Prompts Created</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">2,500+</div>
-                    <div class="stat-label">Active Users</div>
+                <div>
+                    <div class="text-5xl font-extrabold text-white mb-2">2,500+</div>
+                    <div class="text-base text-white/90">Active Users</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Teams</div>
+                <div>
+                    <div class="text-5xl font-extrabold text-white mb-2">50+</div>
+                    <div class="text-base text-white/90">Teams</div>
                 </div>
             </div>
         </div>
     </section>-->
 
     <!-- Final CTA -->
-    <section class="final-cta">
-        <div class="container">
-            <h2 class="cta-headline">Ready to Level Up Your Prompt Game?</h2>
-            <p class="cta-subheadline">Sign up the mailing list and we'll tell you when VibeStorm is ready to go!</p>
-            <div class="cta-form">
-                <input type="email" class="email-input" placeholder="Enter your email" id="footer-email">
-                <button class="cta-button" data-signup>Sign Up</button>
+    <section class="py-[120px] bg-white text-[#1a1a1a] text-center dark:bg-gradient-to-br dark:from-[#1a1a2e] dark:to-[#16213e] dark:text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-[42px] font-bold mb-4 dark:text-white">Ready to Level Up Your Prompt Game?</h2>
+            <p class="text-lg mb-10 text-[#666] dark:text-white/80">Sign up the mailing list and we'll tell you when VibeStorm is ready to go!</p>
+            <div class="flex gap-3 max-w-[500px] mx-auto mb-4 flex-col md:flex-row">
+                <input type="email" class="flex-1 px-5 py-4 border-2 border-[#e0e0e0] rounded-xl text-base transition-all focus:outline-none focus:border-brand-purple focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)] dark:bg-white/10 dark:text-white dark:border-white/30 dark:placeholder-white/60 dark:focus:bg-white/15 dark:focus:border-white" placeholder="Enter your email" id="footer-email">
+                <button class="px-8 py-4 bg-gradient-to-br from-brand-purple to-brand-purple-dark text-white border-2 border-transparent rounded-xl text-base font-semibold cursor-pointer whitespace-nowrap transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(102,126,234,0.3)] dark:bg-white/15 dark:text-white dark:border-white/30 dark:hover:bg-white/25 dark:hover:border-white" data-signup>Sign Up</button>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">VibeStorm</div>
+    <footer class="py-[60px] pb-[40px] bg-[#1a1a1a] text-white dark:bg-[#0f0f1e]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center mb-10">
+                <div class="text-xl font-bold">VibeStorm</div>
             </div>
-            <p class="footer-copyright">&copy; <span id="current-year"></span> VibeStorm. All rights reserved.</p>
+            <p class="text-center text-[#888] text-sm">&copy; <span id="current-year"></span> VibeStorm. All rights reserved.</p>
         </div>
     </footer>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.5;
-            color: #1a1a1a;
-            background: #ffffff;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Navbar */
-        .navbar {
-            padding: 20px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .theme-toggle {
-            background: none;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 8px 12px;
-            cursor: pointer;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            transition: all 0.3s;
-        }
-
-        .theme-toggle:hover {
-            border-color: #667eea;
-            transform: scale(1.05);
-        }
-
-        .theme-toggle .sun-icon {
-            display: block;
-        }
-
-        .theme-toggle .moon-icon {
-            display: none;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Hero */
-        .hero {
-            background: linear-gradient(180deg, #ffffff 0%, #f8f9ff 100%);
-        }
-
-        .hero-content {
-            padding: 80px 24px 120px;
-            text-align: center;
-        }
-
-        .hero-headline {
-            font-size: 56px;
-            font-weight: 800;
-            margin-bottom: 24px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subheadline {
-            font-size: 22px;
-            color: #666;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 12px;
-            max-width: 500px;
-            margin: 0 auto 16px;
-        }
-
-        .email-input {
-            flex: 1;
-            padding: 16px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-
-        .email-input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .cta-button {
-            padding: 16px 32px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: 2px solid transparent;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        .cta-button-small {
-            padding: 10px 24px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: 2px solid transparent;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .cta-button-small:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-        }
-
-        .hero-caption {
-            color: #888;
-            font-size: 14px;
-        }
-
-        /* Features */
-        .features {
-            padding: 120px 0;
-            background: #f8f9ff;
-        }
-
-        .section-title {
-            font-size: 42px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 16px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 60px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-        }
-
-        .feature-card {
-            padding: 32px;
-            border: 1px solid #f0f0f0;
-            border-radius: 16px;
-            transition: all 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-            border-color: #667eea;
-        }
-
-        .feature-icon {
-            font-size: 40px;
-            margin-bottom: 16px;
-        }
-
-        .feature-card h3 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .feature-card p {
-            color: #666;
-        }
-
-        /* Benefits */
-        .benefits {
-            padding: 120px 0;
-            background: white;
-        }
-
-        .benefits-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .benefits-text h2 {
-            font-size: 38px;
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-
-        .benefits-text p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 24px;
-        }
-
-        .benefits-list {
-            list-style: none;
-        }
-
-        .benefits-list li {
-            padding: 12px 0 12px 32px;
-            position: relative;
-            font-size: 16px;
-            color: #444;
-        }
-
-        .benefits-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        .visual-placeholder {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .prompt-card {
-            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 24px;
-        }
-
-        .prompt-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 16px;
-        }
-
-        .prompt-tag {
-            background: #667eea;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .prompt-version {
-            color: #888;
-            font-size: 12px;
-        }
-
-        .prompt-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .prompt-preview {
-            color: #888;
-            font-size: 14px;
-            font-style: italic;
-        }
-
-        /* Stats */
-        .stats {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 60px;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* Final CTA */
-        .final-cta {
-            padding: 120px 0;
-            background: white;
-            color: #1a1a1a;
-            text-align: center;
-        }
-
-        .cta-headline {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .cta-subheadline {
-            font-size: 18px;
-            margin-bottom: 40px;
-            color: #666;
-        }
-
-        .cta-form {
-            display: flex;
-            gap: 12px;
-            max-width: 500px;
-            margin: 0 auto 16px;
-        }
-
-        .final-cta .cta-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: 2px solid transparent;
-        }
-
-        .final-cta .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        .cta-caption {
-            color: #888;
-            font-size: 14px;
-        }
-
-        /* Footer */
-        .footer {
-            padding: 60px 0 40px;
-            background: #1a1a1a;
-            color: white;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-
-        .footer-logo {
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 32px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .footer-copyright {
-            text-align: center;
-            color: #888;
-            font-size: 14px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-headline {
-                font-size: 36px;
-            }
-
-            .hero-subheadline {
-                font-size: 18px;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .benefits-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .cta-form {
-                flex-direction: column;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 24px;
-            }
-        }
-
-        /* Dark Mode */
-        [data-theme="dark"] {
-            color-scheme: dark;
-        }
-
-        [data-theme="dark"] body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #ffffff;
-        }
-
-        [data-theme="dark"] .navbar {
-            border-bottom-color: rgba(255, 255, 255, 0.1);
-        }
-
-        [data-theme="dark"] .logo {
-            background: none;
-            -webkit-text-fill-color: white;
-            color: white;
-        }
-
-        [data-theme="dark"] .theme-toggle {
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        [data-theme="dark"] .theme-toggle:hover {
-            border-color: #667eea;
-        }
-
-        [data-theme="dark"] .theme-toggle .sun-icon {
-            display: none;
-        }
-
-        [data-theme="dark"] .theme-toggle .moon-icon {
-            display: block;
-        }
-
-        [data-theme="dark"] .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        [data-theme="dark"] .hero-headline {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        [data-theme="dark"] .hero-subheadline {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        [data-theme="dark"] .hero-caption {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        [data-theme="dark"] .email-input {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.3);
-            color: white;
-        }
-
-        [data-theme="dark"] .email-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        [data-theme="dark"] .email-input:focus {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: white;
-        }
-
-        [data-theme="dark"] .cta-button {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        [data-theme="dark"] .cta-button:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: white;
-        }
-
-        [data-theme="dark"] .cta-button-small {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        [data-theme="dark"] .cta-button-small:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: white;
-        }
-
-        [data-theme="dark"] .benefits {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        }
-
-        [data-theme="dark"] .benefits-text p {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        [data-theme="dark"] .benefits-list li {
-            color: rgba(255, 255, 255, 0.95);
-        }
-
-        [data-theme="dark"] .benefits-list li:before {
-            color: white;
-        }
-
-        [data-theme="dark"] .visual-placeholder {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        [data-theme="dark"] .prompt-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        [data-theme="dark"] .prompt-version {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        [data-theme="dark"] .prompt-preview {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        [data-theme="dark"] .features {
-            background: linear-gradient(135deg, #2d1b4e 0%, #1e1535 100%);
-        }
-
-        [data-theme="dark"] .section-subtitle {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        [data-theme="dark"] .feature-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        [data-theme="dark"] .feature-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: #667eea;
-        }
-
-        [data-theme="dark"] .feature-card p {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        [data-theme="dark"] .stats {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        [data-theme="dark"] .final-cta {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-        }
-
-        [data-theme="dark"] .cta-headline {
-            color: white;
-        }
-
-        [data-theme="dark"] .cta-subheadline {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        [data-theme="dark"] .final-cta .email-input {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        [data-theme="dark"] .final-cta .email-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        [data-theme="dark"] .final-cta .email-input:focus {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: white;
-        }
-
-        [data-theme="dark"] .final-cta .cta-button {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        [data-theme="dark"] .final-cta .cta-button:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: white;
-        }
-
-        [data-theme="dark"] .cta-caption {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        [data-theme="dark"] .footer {
-            background: #0f0f1e;
-        }
-    </style>
 
     <script>
         // Set current year in footer
@@ -811,11 +151,20 @@ const pageTitle = "VibeStorm - Stop losing your best prompts";
 
         // Check for saved theme preference or default to light mode
         const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            htmlElement.classList.add('dark');
+        }
         htmlElement.setAttribute('data-theme', currentTheme);
 
         themeToggle?.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const isDark = htmlElement.classList.contains('dark');
+            const newTheme = isDark ? 'light' : 'dark';
+
+            if (isDark) {
+                htmlElement.classList.remove('dark');
+            } else {
+                htmlElement.classList.add('dark');
+            }
 
             htmlElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
