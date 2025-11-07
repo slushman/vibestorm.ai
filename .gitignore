@@ -1,9 +1,11 @@
 # Build output
-dist/
-.output/
+dist
+.output
 
 # Dependencies
-node_modules/
+node_modules
+node_modules/*
+package-lock.json
 
 # Environment variables
 .env
@@ -15,8 +17,8 @@ node_modules/
 .DS_Store
 
 # IDE
-.vscode/
-.idea/
+.vscode
+.idea
 *.swp
 *.swo
 *~
@@ -30,13 +32,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Astro
-.astro/
-
 # TypeScript
 *.tsbuildinfo
 
 # Temporary files
 *.tmp
 *.temp
-.cache/
+.cache
