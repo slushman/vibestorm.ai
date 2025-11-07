@@ -1,0 +1,153 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog', ({ data }) => {
+    return data.draft !== true;
+  });
+
+  const categories = [...new Set(allPosts.flatMap((post) => post.data.categories))];
+
+  return categories.map((category) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.categories.includes(category)
+    ).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+    return {
+      params: { category: category.toLowerCase() },
+      props: { category, posts: filteredPosts },
+    };
+  });
+}
+
+const { category, posts } = Astro.props;
+
+const formatDate = (date: Date) => {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content={`Browse all posts in the ${category} category on the VibeStorm blog.`}>
+    <title>{category} | VibeStorm Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans leading-normal text-[#1a1a1a] bg-white dark:bg-gradient-to-br dark:from-[#1a1a2e] dark:to-[#16213e] dark:text-white">
+    <!-- Header -->
+    <header class="border-b border-[#f0f0f0] dark:border-white/10">
+        <nav class="py-5">
+            <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+                <a href="/" class="text-2xl font-extrabold bg-gradient-to-br from-brand-purple to-brand-purple-dark bg-clip-text text-transparent dark:bg-none dark:text-white">VibeStorm</a>
+                <div class="flex items-center gap-4">
+                    <a href="/blog" class="text-[#666] hover:text-brand-purple dark:text-white/80 dark:hover:text-white transition-colors">Blog</a>
+                    <button class="theme-toggle bg-transparent border-2 border-[#e0e0e0] dark:border-white/20 rounded-lg px-3 py-2 cursor-pointer text-xl flex items-center transition-all hover:border-brand-purple hover:scale-105 dark:hover:border-brand-purple" id="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="sun-icon block dark:hidden">☀️</span>
+                        <span class="moon-icon hidden dark:block">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-br from-[#f0f4ff] via-[#e8edff] to-[#f8f9ff] dark:bg-gradient-to-br dark:from-brand-purple dark:to-brand-purple-dark">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-4">
+                <a href="/blog" class="text-[#666] dark:text-white/80 hover:text-brand-purple dark:hover:text-white transition-colors">← Back to Blog</a>
+            </div>
+            <h1 class="text-5xl font-extrabold mb-4 leading-[1.5] bg-gradient-to-br from-brand-purple to-brand-purple-dark bg-clip-text text-transparent dark:bg-none dark:text-white">{category}</h1>
+            <p class="text-xl text-[#666] dark:text-white/90">{posts.length} {posts.length === 1 ? 'post' : 'posts'} in this category</p>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <main class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {posts.map((post) => (
+                    <a href={`/blog/${post.slug}`} class="block">
+                        <article class="bg-white dark:bg-white/5 rounded-2xl overflow-hidden border-2 border-[#e0e0e0] dark:border-white/20 hover:shadow-[0_12px_24px_rgba(0,0,0,0.08)] hover:border-brand-purple dark:hover:border-brand-purple transition-all h-full">
+                            {post.data.image && (
+                                <div class="aspect-video overflow-hidden">
+                                    <img src={post.data.image} alt={post.data.title} class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                                </div>
+                            )}
+                            <div class="p-6">
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    {post.data.categories.slice(0, 2).map((cat) => (
+                                        <span class="px-2 py-1 bg-brand-purple/10 dark:bg-brand-purple/20 text-brand-purple dark:text-white text-xs font-semibold rounded">
+                                            {cat}
+                                        </span>
+                                    ))}
+                                </div>
+                                <h2 class="text-xl font-bold mb-2 dark:text-white hover:text-brand-purple dark:hover:text-brand-purple transition-colors">
+                                    {post.data.title}
+                                </h2>
+                                <p class="text-[#666] dark:text-white/80 text-sm mb-4 line-clamp-2">{post.data.description}</p>
+                                <div class="flex items-center justify-between text-xs text-[#888] dark:text-white/60">
+                                    <time datetime={new Date(post.data.publishDate).toISOString()}>
+                                        {formatDate(post.data.publishDate)}
+                                    </time>
+                                    <span class="text-brand-purple dark:text-white font-semibold">
+                                        Read more →
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+                ))}
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-[60px] pb-[40px] bg-[#1a1a1a] text-white dark:bg-[#0f0f1e]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center mb-10">
+                <div class="text-xl font-bold">VibeStorm</div>
+            </div>
+            <p class="text-center text-[#888] text-sm">&copy; <span id="current-year"></span> VibeStorm. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const yearSpan = document.getElementById('current-year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear().toString();
+        }
+
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            htmlElement.classList.add('dark');
+        }
+        htmlElement.setAttribute('data-theme', currentTheme);
+
+        themeToggle?.addEventListener('click', () => {
+            const isDark = htmlElement.classList.contains('dark');
+            const newTheme = isDark ? 'light' : 'dark';
+
+            if (isDark) {
+                htmlElement.classList.remove('dark');
+            } else {
+                htmlElement.classList.add('dark');
+            }
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html>
