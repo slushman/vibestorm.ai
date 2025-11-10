@@ -3,8 +3,9 @@ title: "Master the ACE Framework: How to Write AI Prompts That Actually Work"
 description: "Master advanced techniques like chain-of-thought prompting, few-shot learning, and prompt chaining to get exceptional results from AI."
 publishDate: 2025-11-07
 categories: ["Frameworks"]
+photographer: "Aditya Chinchure"
+account: "adityachinchure"
 tags: ["content-marketing", "sales-copy", "branding", "education"]
-image: "/posts/ace-prompt-framework/hero.jpg"
 draft: false
 ---
 

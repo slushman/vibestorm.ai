@@ -7,7 +7,10 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
-const { title, description, publishDate, categories, tags, video, image } = post.data;
+const { title, description, publishDate, categories, tags, video, image, photographer, account } = post.data;
+
+// Use the post slug (filename) to construct the hero image path
+const heroImage = image || post.slug;
 
 const formattedDate = new Date(publishDate).toLocaleDateString('en-US', {
   year: 'numeric',
@@ -45,18 +48,38 @@ const formattedDate = new Date(publishDate).toLocaleDateString('en-US', {
     </header>
 
     <!-- Hero Image with Title Overlay -->
-    {image && (
+    {heroImage && (
         <section class="relative overflow-hidden max-h-[400px]">
             <div class="w-full pb-[66.75%]"></div>
             <img
                 alt={title}
                 class="absolute top-0 left-0 w-full h-full object-cover object-center"
-                src={image}
+                src={`/posts/${heroImage}/hero.jpg`}
             />
             <div class="absolute inset-0 bg-[#02334f]/50 dark:bg-[#02334f]/70 z-[1]"></div>
             <h1 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 m-0 p-2 text-center z-10 w-full max-w-[600px] text-5xl font-extrabold leading-tight text-white drop-shadow-lg">
                 {title}
             </h1>
+            {photographer && account && (
+                <a
+                    class="flex rounded bottom-2 text-xs leading-5 text-[#02334f] dark:text-[#02334f] font-bold py-[4px] px-[6px] absolute right-2 decoration-transparent z-10 bg-[#f0f0f0] dark:bg-[#e0e0e0]"
+                    href={`https://unsplash.com/@${account}?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={`Download free do whatever you want high-resolution photos from ${photographer}`}
+                >
+                    <span class="photographer">
+                        <svg
+                            class="h-[12px] relative align-middle fill-[#02334f]"
+                            viewBox="0 0 32 32"
+                        >
+                            <title>unsplash-logo</title>
+                            <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+                        </svg>
+                    </span>
+                    <span class="photographer" data-test="photographer">{photographer}</span>
+                </a>
+            )}
         </section>
     )}
 
@@ -72,7 +95,7 @@ const formattedDate = new Date(publishDate).toLocaleDateString('en-US', {
                         </a>
                     ))}
                 </div>
-                {!image && (
+                {!heroImage && (
                     <h1 class="text-5xl font-extrabold mb-4 leading-tight dark:text-white">{title}</h1>
                 )}
                 <div class="flex items-center gap-4 text-sm text-[#888] dark:text-white/60">

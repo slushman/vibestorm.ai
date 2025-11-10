@@ -45,6 +45,12 @@
         "image": {
           "type": "string"
         },
+        "photographer": {
+          "type": "string"
+        },
+        "account": {
+          "type": "string"
+        },
         "draft": {
           "type": "boolean",
           "default": false
