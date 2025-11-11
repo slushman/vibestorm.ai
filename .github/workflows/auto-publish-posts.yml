@@ -1,0 +1,38 @@
+name: Auto-Publish Scheduled Posts
+
+on:
+  schedule:
+    # Run every day at 9 AM UTC (adjust timezone as needed)
+    - cron: '0 9 * * *'
+  workflow_dispatch: # Allows manual triggering from GitHub UI
+
+jobs:
+  publish-posts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run auto-publish script
+        run: node scripts/auto-publish.js
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          if git diff --quiet; then
+            echo "No posts to publish"
+          else
+            git add src/content/blog/*.md
+            git commit -m "Auto-publish scheduled posts [skip ci]"
+            git push
+          fi
