@@ -9,74 +9,35 @@ const __dirname = dirname(__filename);
 const BLOG_DIR = resolve(__dirname, '../src/content/blog');
 
 /**
- * Parse frontmatter from a markdown file
+ * Extract publish date and draft status from frontmatter
  */
-function parseFrontmatter(content) {
+function extractFrontmatterData(content) {
   const frontmatterRegex = /^---\n([\s\S]*?)\n---/;
   const match = content.match(frontmatterRegex);
 
   if (!match) {
-    return { frontmatter: null, content };
+    return { publishDate: null, isDraft: false };
   }
 
   const frontmatterText = match[1];
-  const bodyContent = content.slice(match[0].length);
 
-  // Parse YAML-like frontmatter into an object
-  const frontmatter = {};
-  const lines = frontmatterText.split('\n');
+  // Extract publishDate
+  const dateMatch = frontmatterText.match(/publishDate:\s*(\d{4}-\d{2}-\d{2})/);
+  const publishDate = dateMatch ? dateMatch[1] : null;
 
-  for (const line of lines) {
-    const colonIndex = line.indexOf(':');
-    if (colonIndex === -1) continue;
+  // Extract draft status
+  const draftMatch = frontmatterText.match(/draft:\s*(true|false)/);
+  const isDraft = draftMatch ? draftMatch[1] === 'true' : false;
 
-    const key = line.slice(0, colonIndex).trim();
-    let value = line.slice(colonIndex + 1).trim();
-
-    // Handle boolean values
-    if (value === 'true') value = true;
-    if (value === 'false') value = false;
-
-    // Remove quotes from strings
-    if (typeof value === 'string' && value.startsWith('"') && value.endsWith('"')) {
-      value = value.slice(1, -1);
-    }
-
-    frontmatter[key] = value;
-  }
-
-  return { frontmatter, bodyContent };
+  return { publishDate, isDraft };
 }
 
 /**
- * Convert frontmatter object back to YAML string
+ * Get post title from frontmatter
  */
-function stringifyFrontmatter(frontmatter) {
-  const lines = [];
-
-  for (const [key, value] of Object.entries(frontmatter)) {
-    if (value === null || value === undefined) continue;
-
-    // Handle arrays (categories, tags)
-    if (Array.isArray(value)) {
-      const arrayStr = value.map(v => `"${v}"`).join(', ');
-      lines.push(`${key}: [${arrayStr}]`);
-    }
-    // Handle booleans
-    else if (typeof value === 'boolean') {
-      lines.push(`${key}: ${value}`);
-    }
-    // Handle strings
-    else if (typeof value === 'string') {
-      lines.push(`${key}: "${value}"`);
-    }
-    // Handle other types
-    else {
-      lines.push(`${key}: ${value}`);
-    }
-  }
-
-  return lines.join('\n');
+function extractTitle(content) {
+  const titleMatch = content.match(/title:\s*"([^"]+)"/);
+  return titleMatch ? titleMatch[1] : 'Untitled';
 }
 
 /**
@@ -94,37 +55,36 @@ function autoPublishPosts() {
   for (const file of files) {
     const filePath = join(BLOG_DIR, file);
     const content = readFileSync(filePath, 'utf8');
-    const { frontmatter, bodyContent } = parseFrontmatter(content);
+    const { publishDate, isDraft } = extractFrontmatterData(content);
 
-    if (!frontmatter) {
-      console.log(`⚠️  Skipping ${file} - no frontmatter found`);
+    // Skip if not a draft
+    if (!isDraft) {
       continue;
     }
 
-    // Check if post is a draft
-    if (frontmatter.draft !== true) {
+    // Skip if no publish date found
+    if (!publishDate) {
+      console.log(`⚠️  Skipping ${file} - no publishDate found`);
       continue;
     }
 
     // Parse publish date
-    const publishDate = new Date(frontmatter.publishDate);
-    publishDate.setHours(0, 0, 0, 0);
+    const publishDateTime = new Date(publishDate);
+    publishDateTime.setHours(0, 0, 0, 0);
 
     // Check if publish date has been reached
-    if (publishDate <= today) {
+    if (publishDateTime <= today) {
+      const title = extractTitle(content);
       console.log(`✅ Publishing: ${file}`);
-      console.log(`   Title: ${frontmatter.title || 'Untitled'}`);
-      console.log(`   Publish Date: ${frontmatter.publishDate}`);
+      console.log(`   Title: ${title}`);
+      console.log(`   Publish Date: ${publishDate}`);
 
-      // Update draft status
-      frontmatter.draft = false;
-
-      // Reconstruct the file content
-      const newFrontmatter = stringifyFrontmatter(frontmatter);
-      const newContent = `---\n${newFrontmatter}\n---${bodyContent}`;
+      // Simply replace "draft: true" with "draft: false"
+      // This preserves all formatting and doesn't mess with YAML structure
+      const updatedContent = content.replace(/draft:\s*true/, 'draft: false');
 
       // Write the updated content back to the file
-      writeFileSync(filePath, newContent, 'utf8');
+      writeFileSync(filePath, updatedContent, 'utf8');
       publishedCount++;
       console.log(`   ✨ Published successfully!\n`);
     }
