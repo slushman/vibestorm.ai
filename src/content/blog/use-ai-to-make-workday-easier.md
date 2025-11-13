@@ -1,7 +1,7 @@
 ---
 title: "5 Ways to Use AI to Make Your Workday Easier (Without Feeling Like a Robot)"
 description: "Struggling to get useful results from AI at work? These 5 practical ways to use AI for emails, summaries, and brainstorming will transform your workday in minutes."
-publishDate: "2025-11-12"
+publishDate: 2025-11-12
 categories: ["Use Cases"]
 photographer: "KC Shum"
 account: "kcshum"

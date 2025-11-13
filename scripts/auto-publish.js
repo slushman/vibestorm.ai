@@ -21,8 +21,8 @@ function extractFrontmatterData(content) {
 
   const frontmatterText = match[1];
 
-  // Extract publishDate
-  const dateMatch = frontmatterText.match(/publishDate:\s*(\d{4}-\d{2}-\d{2})/);
+  // Extract publishDate (with or without quotes)
+  const dateMatch = frontmatterText.match(/publishDate:\s*"?(\d{4}-\d{2}-\d{2})"?/);
   const publishDate = dateMatch ? dateMatch[1] : null;
 
   // Extract draft status
