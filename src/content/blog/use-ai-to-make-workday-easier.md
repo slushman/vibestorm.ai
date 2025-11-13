@@ -1,12 +1,12 @@
 ---
 title: "5 Ways to Use AI to Make Your Workday Easier (Without Feeling Like a Robot)"
 description: "Struggling to get useful results from AI at work? These 5 practical ways to use AI for emails, summaries, and brainstorming will transform your workday in minutes."
-publishDate: 2025-11-12
-categories: ["Use Cases"]
+publishDate: "2025-11-12"
+categories: "["Use Cases"]"
 photographer: "KC Shum"
 account: "kcshum"
-tags: ["productivity", "work-prompts", "email-writing", "meeting-summaries", "brainstorming", "ai-for-work" , "beginner-tips"]
-draft: true
+tags: "["productivity", "work-prompts", "email-writing", "meeting-summaries", "brainstorming", "ai-for-work" , "beginner-tips"]"
+draft: false
 ---
 
 You know that feeling when you stare at a blinking cursor, trying to write *yet another* email that sounds professional but not robotic? Or when you're drowning in meeting notes and just need someone to tell you what the team actually decided to do?
