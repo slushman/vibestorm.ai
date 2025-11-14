@@ -6,7 +6,7 @@ categories: ["Frameworks"]
 photographer: "Bernd Dittrich"
 account: "hdbernd"
 tags: ["prompt-engineering", "ai-frameworks", "clear-framework", "chatgpt-tips", "better-ai-results", "prompt-writing", "ai-for-beginners"]
-draft: true
+draft: false
 ---
 
 You know that feeling when you ask AI for something simple and it comes back with... whatever *that* was? Like asking for a friendly email and getting a corporate robot manifesto? Or requesting a quick explanation and receiving a PhD thesis?
