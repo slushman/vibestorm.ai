@@ -6,7 +6,7 @@ categories: ["Foundations"]
 photographer: "Aileen Bielefeldt"
 account: "bifi2013"
 tags: ["context", "prompting-basics", "ai-fundamentals", "better-prompts", "prompt-engineering", "ai-tips", "beginner-guide"]
-draft: true
+draft: false
 ---
 
 Ever asked AI for help and gotten an answer that was *technically correct* but completely useless? Like asking for "a good restaurant" and getting recommendations for steakhouses when you're vegan? That's a context problem.
