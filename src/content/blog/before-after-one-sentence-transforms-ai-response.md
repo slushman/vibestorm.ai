@@ -6,7 +6,7 @@ categories: ["Examples"]
 photographer: "Usman Yousaf"
 account: "usmanyousaf"
 tags: ["prompt-improvement", "before-and-after", "prompt-examples", "ai-response-quality", "prompt-clarity", "better-prompts", "prompt-tips"]
-draft: true
+draft: false
 ---
 
 ## The Problem with "Just Okay" AI Responses
