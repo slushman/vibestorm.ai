@@ -6,7 +6,7 @@ categories: ["Frameworks"]
 photographer: ""
 account: ""
 tags: ["trace-framework", "technical-prompts", "prompt-engineering", "code-review", "documentation", "debugging", "system-design", "api-documentation", "frameworks"]
-draft: true
+draft: false
 ---
 
 You know that feeling when you ask AI to help with something technical and it comes back with... *vibes*? Like you asked for a detailed API spec and got back a motivational poster about webhooks?
