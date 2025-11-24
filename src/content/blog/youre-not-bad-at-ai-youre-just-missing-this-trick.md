@@ -4,7 +4,7 @@ description: "You're not bad at AI prompting, you just haven't learned the trick
 publishDate: 2025-11-24
 categories: ["Foundations"]
 tags: ["prompting-basics", "getting-started", "ai-tips", "prompt-writing", "beginner-guide", "ai-skills"]
-draft: true
+draft: false
 ---
 
 You type a prompt into ChatGPT. It gives you something… weird. Off-brand. Totally missing the point.
