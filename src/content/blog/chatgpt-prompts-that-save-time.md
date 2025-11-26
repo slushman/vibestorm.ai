@@ -4,7 +4,7 @@ description: "Stop wasting time with vague AI prompts. These 3 ChatGPT prompts t
 publishDate: 2025-11-26
 categories: ["Examples"]
 tags: ["chatgpt", "productivity", "time-saving", "efficiency", "prompts", "email-writing", "task-management", "scheduling"]
-draft: true
+draft: false
 ---
 
 ## You're using ChatGPT wrong (and losing hours because of it)
