@@ -4,7 +4,7 @@ description: "Learn the AIM Framework for AI prompts: Audience, Input, Method. G
 publishDate: 2025-11-28
 categories: ["Frameworks"]
 tags: ["aim-framework, ai-prompting, prompt-engineering, chatgpt-tips, content-creation, ai-frameworks, structured-prompts"]
-draft: true
+draft: false
 ---
 
 Ever ask ChatGPT to write something and get back... well, *something*? It's not terrible. It's just not *right*. Too generic. Too formal. Totally missing the mark for who you're actually writing for.
